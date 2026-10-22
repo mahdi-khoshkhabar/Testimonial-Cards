@@ -1,0 +1,21 @@
+.profile-photo.small {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.card.v1 {
+    display: grid;
+    grid-template-areas: 
+    "message profile-photo"
+    "message author";
+}
+
+.card.v1 .message {
+    color: white;
+    background-color: black;
+    width: 50%;
+    min-height: 50px;
+}
+
