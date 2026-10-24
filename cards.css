@@ -1,21 +1,33 @@
-.profile-photo.small {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
+:root {
+    --image-small-width: clamp(50px, 15vw, 150px);
+
+    --message-background-color: #1E1E1E;
+    --meseage-text-color: #FFFFFF;
 }
 
 .card.v1 {
     display: grid;
-    grid-template-areas: 
-    "message profile-photo"
-    "message author";
+    grid-template-areas:
+        "message message"
+        "profile-photo author";
+    grid-template-columns: var(--image-small-width);
+    width: 50%;
+    font-family: 'Montserrat-Regular';
+    border-radius: 10%;
+}
+
+.profile-photo.small {
+    width: var(--image-small-width);
+    object-fit: cover;
+    border-radius: 50%;
+    grid-area: profile-photo;
 }
 
 .card.v1 .message {
-    color: white;
-    background-color: black;
-    width: 50%;
+    color: var(--meseage-text-color);
+    background-color: var(--message-background-color);
     min-height: 50px;
+    grid-area: message;
+    padding: 20px;
+    
 }
-
