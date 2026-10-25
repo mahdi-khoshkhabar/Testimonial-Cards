@@ -7,13 +7,14 @@
 
 .card.v1 {
     --profile-left-margin: 1rem;
+    --card-width: clamp(100px, 80%, );
     display: grid;
     grid-template-areas:
         "message message"
         "profile-photo author";
     grid-template-columns: calc(var(--profile-width) + var(--profile-left-margin));
-    width: 50%;
-    font-family: 'Montserrat-Regular';
+    width: var(--card-width);
+    font-family: 'Montserrat', sans-serif;
     gap: 1rem;
 }
 
@@ -47,4 +48,17 @@
     width: var(--width);
     height: 1rem;
     clip-path: polygon(0 0, 100% 0, 50% 80%);
+}
+
+.card.v1 .author {
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card.v1 .desc {
+    font-size: 1rem;
+    font-weight: 400;
 }
