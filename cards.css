@@ -1,8 +1,23 @@
 :root {
-    --profile-width: clamp(50px, 15vw, 150px);
+    --profile-width: clamp(50px, 10vw, 150px);
 
     --message-background-color: #1E1E1E;
     --meseage-text-color: #FFFFFF;
+}
+
+main {
+    display: grid;
+    gap: 3vw;
+    padding: 5vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "v1 v2"
+        "v3 v3";
+}
+
+.card {
+    font-family: 'Montserrat', sans-serif;
+    font-size: max(1rem, 2vw);
 }
 
 .card.v1 {
@@ -14,8 +29,8 @@
         "profile-photo author";
     grid-template-columns: calc(var(--profile-width) + var(--profile-left-margin));
     width: var(--card-width);
-    font-family: 'Montserrat', sans-serif;
     gap: 1rem;
+    grid-area: v1;
 }
 
 .profile-photo.small {
@@ -24,8 +39,12 @@
     object-fit: cover;
     clip-path: circle();
     grid-area: profile-photo;
-    margin-left: var(--profile-left-margin);
+    align-self: center;
 }
+
+.card.v1 .profile-photo.small {
+        margin-left: var(--profile-left-margin);
+    }
 
 .card.v1 .message {
     color: var(--meseage-text-color);
@@ -42,7 +61,7 @@
     --width: 1.5rem;
     content: "";
     position: absolute;
-    top: 100%;
+    top: 99%;
     left: calc(var(--profile-width)/2 - var(--width)/2 + var(--profile-left-margin));
     background-color: #1E1E1E;
     width: var(--width);
@@ -50,15 +69,37 @@
     clip-path: polygon(0 0, 100% 0, 50% 80%);
 }
 
-.card.v1 .author {
+.card.v1 .author,
+.card.v2 .author {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: max(1.3rem, 2.3vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.card.v1 .desc {
-    font-size: 1rem;
+.card.v1 .desc,
+.card.v2 .desc {
+    font-size: max(0.8rem, 1.5vw);
     font-weight: 400;
+}
+
+.card.v2 {
+    border: 2px solid black;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: var(--profile-width);
+    grid-template-areas:
+        "message message"
+        "profile-photo author";
+    gap: 1rem;
+}
+
+.card.v2 .message {
+    grid-area: message;
+}
+
+.card.v3 {
+    grid-area: v3;
 }
