@@ -5,6 +5,10 @@
     --meseage-text-color: #FFFFFF;
 }
 
+img {
+    width: 30%;
+}
+
 main {
     display: grid;
     gap: 3vw;
@@ -33,7 +37,7 @@ main {
     grid-area: v1;
 }
 
-.profile-photo.small {
+.card:is(.v1, .v2) .profile-photo {
     width: var(--profile-width);
     aspect-ratio: 1/1;
     object-fit: cover;
@@ -42,9 +46,9 @@ main {
     align-self: center;
 }
 
-.card.v1 .profile-photo.small {
-        margin-left: var(--profile-left-margin);
-    }
+.card.v1 .profile-photo {
+    margin-left: var(--profile-left-margin);
+}
 
 .card.v1 .message {
     color: var(--meseage-text-color);
@@ -67,6 +71,10 @@ main {
     width: var(--width);
     height: 1rem;
     clip-path: polygon(0 0, 100% 0, 50% 80%);
+}
+
+.author {
+    grid-area: author;
 }
 
 .card.v1 .author,
@@ -96,10 +104,43 @@ main {
     gap: 1rem;
 }
 
-.card.v2 .message {
+.card .message {
     grid-area: message;
 }
 
+/* v3 */
 .card.v3 {
+    --border-radius: calc((100vw)/30);
     grid-area: v3;
+    display: grid;
+    grid-template-areas: 
+    "profile-photo-large end-section";
+    grid-template-columns: 30% 70%;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+    font-size: 2vw;
+}
+
+.rate {
+    grid-area: rate;
+}
+
+.end-section {
+    --pad: 7%;
+    padding: var(--pad);
+    width: 100;
+    background-color: var(--message-background-color);
+    grid-area: end-section;
+    color: var(--meseage-text-color);
+    border-radius: var(--border-radius);
+}
+
+/* Large prf */
+.card.v3 .profile-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: var(--border-radius);
+    grid-area: profile-photo-large;
+    display: block;
 }
