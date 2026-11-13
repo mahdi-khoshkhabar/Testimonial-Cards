@@ -10,6 +10,12 @@
     --cards-padding: calc(var(--main-padding) / 2);
 }
 
+h1 {
+    font-size: 4vw;
+    text-align: center;
+    padding: 1vw;
+}
+
 img {
     width: 30%;
 }
