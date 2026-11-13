@@ -3,6 +3,8 @@
 
     --message-background-color: #1E1E1E;
     --meseage-text-color: #FFFFFF;
+
+    --border-radius: calc(100vw / 30);
 }
 
 img {
@@ -10,18 +12,24 @@ img {
 }
 
 main {
+    --main-padding: 5vw;
     display: grid;
     gap: 3vw;
-    padding: 5vw;
+    padding: var(--main-padding);
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
         "v1 v2"
-        "v3 v3";
+        "v3 v3"
+        "dynamic dynamic";
 }
 
 .card {
     font-family: 'Montserrat', sans-serif;
-    font-size: max(1rem, 2vw);
+    font-size: 2vw;
+}
+
+.card .author {
+    font-size: max(1rem, 3vw);;
 }
 
 .card.v1 {
@@ -36,8 +44,7 @@ main {
     gap: 1rem;
     grid-area: v1;
 }
-
-.card:is(.v1, .v2) .profile-photo {
+:is(.v1, .v2, .dynamic) .profile-photo {
     width: var(--profile-width);
     aspect-ratio: 1/1;
     object-fit: cover;
@@ -56,7 +63,7 @@ main {
     min-height: 50px;
     grid-area: message;
     padding: 20px;
-    border-radius: 1.5rem;
+    border-radius: var(--border-radius);
     position: relative;
 }
 
@@ -80,7 +87,6 @@ main {
 .card.v1 .author,
 .card.v2 .author {
     font-weight: 600;
-    font-size: max(1.3rem, 2.3vw);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,8 +99,8 @@ main {
 }
 
 .card.v2 {
-    border: 2px solid black;
-    border-radius: 1.5rem;
+    border: 0.2vw solid var(--message-background-color);
+    border-radius: var(--border-radius);
     padding: 1rem;
     display: grid;
     grid-template-columns: var(--profile-width);
@@ -110,16 +116,20 @@ main {
 
 /* v3 */
 .card.v3 {
-    --border-radius: calc((100vw)/30);
+    --v3-padding: calc(var(--main-padding) / 2);
+    --photo-size: max(160px, 35vw);
+
     grid-area: v3;
-    display: grid;
-    grid-template-areas: 
-    "profile-photo-large end-section";
-    grid-template-columns: 30% 70%;
-    gap: 1rem;
-    height: 100%;
+    display: flex;
+    gap: var(--v3-padding);
     width: 100%;
-    font-size: 2vw;
+    align-items: stretch;
+}
+
+.desc {
+    font-size: 2.2vw;
+    display: block;
+    color: #787878;
 }
 
 .rate {
@@ -127,20 +137,65 @@ main {
 }
 
 .end-section {
-    --pad: 7%;
+    --pad: 6%;
     padding: var(--pad);
-    width: 100;
+    flex: 1 1 0%;
+    min-width: 0;
     background-color: var(--message-background-color);
-    grid-area: end-section;
     color: var(--meseage-text-color);
     border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* Large prf */
+
 .card.v3 .profile-photo {
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: var(--photo-size);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: var(--border-radius);
-    grid-area: profile-photo-large;
+    flex-shrink: 0;
     display: block;
+}
+
+/* dynamic card */
+.card.dynamic {
+    grid-area: dynamic;
+    padding: 8vw;
+    display: flex;
+    flex-direction: column;
+    border: 0.2vw solid var(--message-background-color);
+    border-radius: var(--border-radius);
+    align-items: center;
+}
+.dynamic .profile-photo {
+    --dynamic-photo-width: clamp(40px, 8vw, 130px);
+    width: var(--dynamic-photo-width);
+}
+.dynamic .message {
+    text-align: center;
+}
+.dynamic .aside-profile {
+    opacity: 0.5;
+    width: calc(var(--dynamic-photo-width) - 20px);
+}
+.card.dynamic .arrow {
+    width: 2vw;
+}
+.profile-selector {
+    display: flex;
+    margin-top: 7vw;
+}
+.profile-selector img {
+    margin: 0 1vw;
+}
+.profile-selector .arrow {
+    margin: 0 2vw;
+}
+.dynamic .author {
+    font-size: max(1rem, 2vw);
+    text-align: center;
+    margin-top: 3vw;
 }
