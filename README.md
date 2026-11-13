@@ -1,7 +1,9 @@
 # Responsive Testimonial Cards
 
 A collection of modern and responsive testimonial cards built with pure **HTML** and **CSS**.  
-This is a practice project from [roadmap.sh](https://roadmap.sh) focused on layout, positioning, Flexbox, and CSS Grid.
+This is a practice project from [roadmap.sh](https://roadmap.sh/projects/testimonial-cards) focused on layout, positioning, Flexbox, and CSS Grid.
+
+> **Project Link:** [https://roadmap.sh/projects/testimonial-cards](https://roadmap.sh/projects/testimonial-cards)
 
 ---
 
@@ -98,7 +100,9 @@ This project is open source and available under the [MIT License](LICENSE).
 # کارت‌های نظرات واکنش‌گرا (نسخه فارسی)
 
 مجموعه‌ای از کارت‌های مدرن و واکنش‌گرا برای نمایش نظرات کاربران که با **HTML** و **CSS** خالص ساخته شده است.  
-این پروژه تمرینی از [roadmap.sh](https://roadmap.sh) است و روی تکنیک‌های چیدمان، موقعیت‌دهی، Flexbox و CSS Grid تمرکز دارد.
+این پروژه تمرینی از [roadmap.sh](https://roadmap.sh/projects/testimonial-cards) است و روی تکنیک‌های چیدمان، موقعیت‌دهی، Flexbox و CSS Grid تمرکز دارد.
+
+> **لینک پروژه:** [https://roadmap.sh/projects/testimonial-cards](https://roadmap.sh/projects/testimonial-cards)
 
 ---
 
